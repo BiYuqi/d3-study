@@ -50,12 +50,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@import '../../styles/common.scss';
-.common-box {
-  border: 1px solid $baseColor;
-  margin: 10px 0;
-  padding: 10px;
-}
-</style>

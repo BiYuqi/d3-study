@@ -1,6 +1,9 @@
 <template>
   <ul class="d3-sidebar">
-    <li v-for="(item, index) in sideBars" :key="index">
+    <li
+      v-for="(item, index) in sideBars"
+      :key="index"
+      :title="item.name">
       <router-link :to="'/' + item.name">
         {{item.display}}
       </router-link>
@@ -26,12 +29,15 @@ export default {
   position: absolute;
   top: $height;
   left: 0;
-  width: 160px;
+  width: $sideBarWidth + px;
   border-right: 1px solid $borderColor;
   height: calc(100vh - #{$height});
 
   li {
     border-bottom: 1px solid #f0f0f0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     a {
       color: #333333;

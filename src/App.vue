@@ -13,7 +13,6 @@ export default {
 </script>>
 <style lang="scss">
 @import './styles/common.scss';
-
 *{
   box-sizing: border-box;
   margin: 0;
@@ -32,5 +31,10 @@ body{
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   width: 100%;
+}
+.common-box {
+  border: 1px solid $baseColor;
+  margin: 10px 0;
+  padding: 10px;
 }
 </style>

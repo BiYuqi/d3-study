@@ -24,10 +24,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../styles/common.scss';
 .d3-container {
   position: relative;
   .d3-content {
-    padding: 15px 15px 0 175px;
+    padding: 15px 15px 0 calc(#{$sideBarWidth + 15}px);
   }
 }
 </style>
