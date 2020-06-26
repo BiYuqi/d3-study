@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/views/Main'
+import sideBar from './routes'
 
 Vue.use(Router)
 
@@ -10,13 +11,13 @@ export const routes = [
     name: 'home',
     component: Main,
     redirect: '/hello-world',
-    children: [
-      {
-        name: 'hello-world',
-        path: '/hello-world',
-        component: () => import('../views/HelloWorld')
+    children: sideBar.map(item => {
+      return {
+        name: item.name,
+        path: `/${item.name}`,
+        component: () => import('../components/' + item.component)
       }
-    ]
+    })
   },
   {
     path: '*',
@@ -29,9 +30,6 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  if (process.env.NODE_ENV === 'production') {
-    if (to.path) window._hmt.push(['_trackPageview', '/#' + to.fullPath])
-  }
   next()
 })
 
